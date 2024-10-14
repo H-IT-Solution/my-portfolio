@@ -1,57 +1,109 @@
 /* General styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Ensures padding and borders are included in width calculations */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fff;
     scroll-behavior: smooth;
-    /* Smooth scrolling */
+    color: #fff;
+    /* Change this to a contrasting color for better readability */
 }
 
+/* Header */
 header {
-    background-color: #333;
+    background-color: #111;
     color: white;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    /* Adjust horizontal padding */
     text-align: center;
     position: fixed;
-    /* Fix navigation bar to the top */
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    left: 0;
+    /* Ensures it starts at the left edge */
+    overflow: hidden;
+    /* Prevent overflow from the header */
+}
+
+header h1 span {
+    color: #28a745;
 }
 
 nav a {
     color: white;
     margin: 0 1rem;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
+nav a:hover {
+    color: #28a745;
+}
+
+/* Section styles */
 section {
     padding: 5rem 2rem;
     min-height: 100vh;
-    /* Make each section take up the full viewport height */
-    margin-top: 3rem;
-    /* Offset for the fixed header */
+    margin-top: 4rem;
+    width: 100%;
+    /* Ensures the section takes full width */
+    box-sizing: border-box;
+    /* Include padding in total width */
 }
 
+/* Home section */
 #home {
-    background-color: #f4f4f4;
+    background-color: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    /* Center text for better layout */
 }
 
-#about {
-    background-color: #e2e2e2;
+#home h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-#projects {
-    background-color: #ccc;
+#home h1 span {
+    color: #28a745;
 }
 
+#home p {
+    font-size: 1.5rem;
+    color: #ddd;
+}
+
+/* About, Projects, Contact sections */
+#about,
+#projects,
 #contact {
-    background-color: #b2b2b2;
+    padding-top: 7rem;
+    text-align: center;
+    background-color: #111;
+    /* Added background color here to reduce repetition */
 }
 
+/* Footer */
 footer {
-    background-color: #333;
+    background-color: #222;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -60,22 +112,69 @@ footer {
     width: 100%;
 }
 
+/* Form styles for contact section */
 form {
     display: flex;
     flex-direction: column;
+    max-width: 500px;
+    margin: 2rem auto;
+    /* Added vertical margin for spacing */
 }
 
 input,
 textarea {
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
     font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 button {
-    padding: 0.5rem;
-    font-size: 1rem;
-    background-color: #333;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    background-color: #28a745;
     color: white;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+    /* Darkened on hover for better effect */
+}
+
+/* Image centering and styling */
+#home img {
+    max-width: 50%;
+    border-radius: 50%;
+    margin-top: 2rem;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        /* Stack navigation links */
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 4rem 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
 }

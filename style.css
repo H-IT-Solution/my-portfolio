@@ -3,17 +3,15 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    /* Ensures padding and borders are included in width calculations */
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fff;
     scroll-behavior: smooth;
     color: #fff;
-    /* Change this to a contrasting color for better readability */
 }
 
 /* Header */
@@ -21,7 +19,6 @@ header {
     background-color: #111;
     color: white;
     padding: 1rem 2rem;
-    /* Adjust horizontal padding */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -32,9 +29,7 @@ header {
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     left: 0;
-    /* Ensures it starts at the left edge */
     overflow: hidden;
-    /* Prevent overflow from the header */
 }
 
 header h1 span {
@@ -54,15 +49,61 @@ nav a:hover {
     color: #28a745;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 21px;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* Hide nav by default on small screens */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        /* Below the header */
+        right: 0;
+        background-color: #111;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #nav-links a {
+        padding: 1rem;
+        width: 100%;
+        border-bottom: 1px solid #333;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Toggle menu */
+    #nav-links.active {
+        display: flex;
+    }
+}
+
 /* Section styles */
 section {
     padding: 5rem 2rem;
     min-height: 100vh;
-    margin-top: 4rem;
     width: 100%;
-    /* Ensures the section takes full width */
     box-sizing: border-box;
-    /* Include padding in total width */
 }
 
 /* Home section */
@@ -74,7 +115,6 @@ section {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    /* Center text for better layout */
 }
 
 #home h1 {
@@ -91,14 +131,12 @@ section {
     color: #ddd;
 }
 
-/* About, Projects, Contact sections */
 #about,
 #projects,
 #contact {
     padding-top: 7rem;
     text-align: center;
     background-color: #111;
-    /* Added background color here to reduce repetition */
 }
 
 /* Footer */
@@ -118,7 +156,6 @@ form {
     flex-direction: column;
     max-width: 500px;
     margin: 2rem auto;
-    /* Added vertical margin for spacing */
 }
 
 input,
@@ -145,7 +182,6 @@ button {
 
 button:hover {
     background-color: #218838;
-    /* Darkened on hover for better effect */
 }
 
 /* Image centering and styling */
@@ -159,7 +195,6 @@ button:hover {
 @media (max-width: 768px) {
     header nav {
         flex-direction: column;
-        /* Stack navigation links */
     }
 
     #home h1 {

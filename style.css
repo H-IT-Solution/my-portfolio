@@ -28,15 +28,18 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    left: 0;
-    overflow: hidden;
 }
 
 header h1 span {
     color: #28a745;
 }
 
-nav a {
+/* Desktop nav links */
+#nav-links {
+    display: flex;
+}
+
+#nav-links a {
     color: white;
     margin: 0 1rem;
     text-decoration: none;
@@ -45,7 +48,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+#nav-links a:hover {
     color: #28a745;
 }
 
@@ -67,36 +70,84 @@ nav a:hover {
     transition: 0.3s;
 }
 
-/* Hide nav by default on small screens */
+/* Change hamburger to 'X' */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(12.5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12.5px);
+}
+
+/* Side Menu (Hidden initially) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    /* Start hidden off-screen */
+    height: 100%;
+    width: 250px;
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    padding-top: 7rem;
+    transition: right 0.3s ease;
+}
+
+.side-menu a {
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.side-menu a:hover {
+    background-color: #28a745;
+}
+
+/* Show side menu when active */
+.side-menu.active {
+    right: 0;
+    /* Slide in */
+}
+
+/* Media Queries for responsiveness */
 @media (max-width: 768px) {
-    #nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        /* Below the header */
-        right: 0;
-        background-color: #111;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    #nav-links a {
-        padding: 1rem;
-        width: 100%;
-        border-bottom: 1px solid #333;
-    }
-
+    /* Show hamburger menu and hide normal nav */
     .hamburger {
         display: flex;
     }
 
-    /* Toggle menu */
-    #nav-links.active {
-        display: flex;
+    #nav-links {
+        display: none;
+        /* Hide nav links on mobile */
     }
 }
+
+/* Show nav links on larger screens */
+@media (min-width: 769px) {
+    #nav-links {
+        display: flex;
+        /* Show nav links on desktop */
+    }
+
+    .side-menu {
+        display: none;
+        /* Hide side menu on desktop */
+    }
+
+    .hamburger {
+        display: none;
+        /* Hide hamburger on desktop */
+    }
+}
+
 
 /* Section styles */
 section {

@@ -1,6 +1,7 @@
 const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+const sideMenu = document.getElementById('side-menu');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    sideMenu.classList.toggle('active'); // Toggle side menu visibility
+    hamburger.classList.toggle('active'); // Toggle hamburger active state
 });

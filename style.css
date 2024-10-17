@@ -52,14 +52,32 @@ header h1 span {
     color: #28a745;
 }
 
-/* Hamburger Menu */
+/* Header Hamburger Menu */
 .hamburger {
-    display: none;
+    display: flex;
+    /* Ensure it's displayed */
     flex-direction: column;
     cursor: pointer;
     width: 30px;
     height: 21px;
     justify-content: space-between;
+    position: relative;
+}
+
+/* Styles for the Side Menu Hamburger */
+#side-hamburger {
+    display: flex;
+    /* Ensure it's displayed */
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 21px;
+    justify-content: space-between;
+    position: absolute;
+    /* Position it at the top of the side menu */
+    top: 45px;
+    /* Adjust as needed */
+    left: 45px;
 }
 
 .hamburger span {
@@ -70,32 +88,40 @@ header h1 span {
     transition: 0.3s;
 }
 
-/* Change hamburger to 'X' */
-.hamburger.active span:nth-child(1) {
+/* Change side menu hamburger to 'X' */
+#side-hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translateY(12.5px);
 }
 
-.hamburger.active span:nth-child(2) {
+#side-hamburger.active span:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger.active span:nth-child(3) {
+#side-hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translateY(-12.5px);
 }
 
-/* Side Menu (Hidden initially) */
+/* Side Menu Styles */
 .side-menu {
     position: fixed;
     top: 0;
     right: -250px;
-    /* Start hidden off-screen */
+    /* Hidden initially */
     height: 100%;
     width: 250px;
-    background-color: #111;
+    background-color: #1a1a1a;
     display: flex;
     flex-direction: column;
     padding-top: 7rem;
     transition: right 0.3s ease;
+    z-index: 1500;
+    /* Lower than the hamburger */
+}
+
+/* Show the side menu */
+.side-menu.active {
+    right: 0;
+    /* Slide in */
 }
 
 .side-menu a {
@@ -122,6 +148,7 @@ header h1 span {
     /* Show hamburger menu and hide normal nav */
     .hamburger {
         display: flex;
+        /* Show hamburger on mobile */
     }
 
     #nav-links {
@@ -147,7 +174,6 @@ header h1 span {
         /* Hide hamburger on desktop */
     }
 }
-
 
 /* Section styles */
 section {
@@ -182,17 +208,91 @@ section {
     color: #ddd;
 }
 
+/* About, Projects, and Contact sections */
 #about,
 #projects,
 #contact {
     padding-top: 7rem;
     text-align: center;
     background-color: #111;
+    color: white;
+}
+
+/* Wrapper to prevent edge-to-edge content */
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    /* Add some padding on smaller screens */
+}
+
+/* About section specific styles */
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #ddd;
+}
+
+/* Improved list styling */
+#about ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#about li {
+    position: relative;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+#about li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+    }
+
+    #about h2 {
+        font-size: 2rem;
+    }
+
+    #about p,
+    #about li {
+        font-size: 1rem;
+    }
+
+    .content-wrapper {
+        padding: 0 0.5rem;
+        /* Add more padding on smaller screens */
+    }
 }
 
 /* Footer */
 footer {
-    background-color: #222;
+    background-color: #1a1a1a;
     color: white;
     text-align: center;
     padding: 1rem;

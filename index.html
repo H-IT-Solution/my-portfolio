@@ -12,7 +12,7 @@
 
     <!-- Navigation -->
     <header>
-        <h1><span>H</span>amad.</h1>
+        <h1>H<span>amad.</span></h1>
         <nav id="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About Me</a>
@@ -25,13 +25,19 @@
             <span></span>
         </div>    
     </header>
-    <!-- Side Menu -->
-    <nav id="side-menu" class="side-menu">
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+
+<!-- Side Menu -->
+<nav id="side-menu" class="side-menu">
+    <div class="hamburger" id="side-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
 
 
     <!-- Home Section -->
@@ -47,14 +53,20 @@
 
     <!-- About Me Section -->
     <section id="about">
-        <h2>About Me</h2>
-        <p> I am a web developer with a passion for creating websites and learning new technologies.</p>
-        <ul>
-            <li>HTML5 & CSS3</li>
-            <li>JavaScript</li>
-            <li>Responsive Design</li>
-        </ul>
+        <div class="content-wrapper">
+            <h2>About Me</h2>
+            <p>I am a web developer with a passion for creating websites and learning new technologies. Here are the languages and frameworks I've worked with so far:</p>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript</li>
+                <li>Django</li>
+                <li>Python</li>
+                <li>PostgreSQL</li>
+            </ul>
+        </div>
     </section>
+
+
 
     <!-- Projects Section -->
     <section id="projects">
